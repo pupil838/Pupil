@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1012075073421",
+    "firebase_url": "https://pupil-3e3ed.firebaseio.com",
+    "project_id": "pupil-3e3ed",
+    "storage_bucket": "pupil-3e3ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012075073421:android:3350f348cdaeb8ac",
+        "android_client_info": {
+          "package_name": "com.capstone.kumar.pupil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012075073421-ia5opkmd0ntj7jqj0s8uh9n638lrsui8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.capstone.kumar.pupil",
+            "certificate_hash": "629b41c9f58e3985bb3d71a0a357d7bac51d8fbc"
+          }
+        },
+        {
+          "client_id": "1012075073421-g4a6u8n8ho4m7s1hlgk9k9n7fgbin62q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6wv1jIkW9mQSaWqUYdzAgoS6aNVmubU4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012075073421-g4a6u8n8ho4m7s1hlgk9k9n7fgbin62q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
