@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.capstone.kumar.pupil.AdminOperations.AdminFeedBack;
+import com.capstone.kumar.pupil.AdminUploadDrive.UploadDrive;
 import com.capstone.kumar.pupil.studentFeedBack.GiveFeedBack;
 import com.capstone.kumar.pupil.studentfragments.LandingFragment;
 import com.capstone.kumar.pupil.studentfragments.Profile_Fragment;
@@ -69,8 +70,8 @@ public class MainActivity extends AppCompatActivity implements
 
         if(mAdmin.equals("qd89XnePKIV2DlydvLucseFdMUO2")) {
 
-            mEdit.setLabelText("Operation");
-            mPhoto.setLabelText("Admin2");
+            mEdit.setLabelText("FeedBack");
+            mPhoto.setLabelText("Upload Drive");
             mRecord.setLabelText("Admin3");
 
             mEdit.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +86,9 @@ public class MainActivity extends AppCompatActivity implements
             mPhoto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, "Admin2 Clicked", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this, "Upload Drive Clicked", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, UploadDrive.class));
+
                 }
             });
 

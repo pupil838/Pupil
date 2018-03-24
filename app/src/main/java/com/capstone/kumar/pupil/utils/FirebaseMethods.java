@@ -136,4 +136,12 @@ public class FirebaseMethods {
         mDatabaseReference.child(mContext.getString(R.string.db_student_feedBack))
                 .push().setValue(studentFeedback);
     }
+
+    public void uploadDrive(String driveName){
+
+        UploadDriveModel driveModel = new UploadDriveModel(driveName);
+        mDatabaseReference.child(mContext.getString(R.string.db_upload_drive))
+                .push().setValue(driveModel);
+
+    }
 }
