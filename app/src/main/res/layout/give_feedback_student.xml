@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/editTextBackgroun">
+    android:background="@color/white">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,39 +14,15 @@
             android:orientation="vertical">
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/relLayout1"
-                android:layout_margin="5dp"
-                android:background="@color/white"
-                android:paddingBottom="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Registration Number*"
-                    android:id="@+id/RegNum"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-                <EditText
-                    android:id="@+id/reg_num"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/RegNum"
-                    android:background="@drawable/feedbackform_border"
-                    android:layout_marginTop="5dp"/>
-
-            </RelativeLayout>
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/relLayout2"
-                android:layout_margin="5dp"
-                android:background="@color/white">
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:elevation="4dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -60,12 +36,23 @@
                     android:id="@+id/drive_name"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_below="@id/drivename">
+                    android:layout_below="@id/drivename"
+                    android:backgroundTint="@color/black" >
 
                 </Spinner>
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/objective_layout"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp">
+
+                <include layout="@layout/objective_feedback" />
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -74,27 +61,7 @@
                 android:layout_margin="5dp"
                 android:background="@color/white">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Give FeedBack*"
-                    android:id="@+id/feedback"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-
-                <EditText
-                    android:id="@+id/give_feedback"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/feedback"
-                    android:background="@null"
-                    android:layout_marginTop="5dp"
-                    android:maxLines="100"
-                    android:gravity="top|left"
-                    android:textSize="16sp"
-                    android:lines="10"
-                    android:scrollbars="vertical"
-                    android:padding="5dp"/>
+                <include layout="@layout/subjective_feedback" />
 
             </RelativeLayout>
 
@@ -106,7 +73,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:elevation="2dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -123,18 +91,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/relLayout5"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:elevation="2dp">
 
                 <Button
                     android:id="@+id/submit_feedback"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
-                    android:background="@drawable/feedbackform_border"
                     android:text="Submit FeedBack"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
 
             </RelativeLayout>
 

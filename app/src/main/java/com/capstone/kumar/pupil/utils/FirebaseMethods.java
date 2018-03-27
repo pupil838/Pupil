@@ -102,21 +102,22 @@ public class FirebaseMethods {
     }
 
     /**
-     * FeedBack operation start
+     * Objective feedback
      */
 
-    public void addFeedBack(final String regNum, final String driveName, final String feedBack, final boolean authority){
-
+    public void addObjective(final String driveKey, final int one, final int two, final int three, final int four,
+                             final int five, final boolean authority){
         Query query = mDatabaseReference.child(mContext.getString(R.string.db_User))
                 .child(mAuth.getCurrentUser().getUid()).child(mContext.getString(R.string.db_user_info));
+
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User_SignUp signup = dataSnapshot.getValue(User_SignUp.class);
 
-                String userName = (String) signup.getUser_Name();
+                String userID = (String) signup.getUser_ID();
 //                Toast.makeText(mContext, "userName "+userName, Toast.LENGTH_SHORT).show();
-                insertFeedBack(userName,regNum,driveName,feedBack,authority);
+                insertObjectiveFeedBack(driveKey,one,two,three,four,five,userID,authority);
 
                 Intent intent = new Intent(mContext, MainActivity.class);
                 mContext.startActivity(intent);
@@ -130,11 +131,52 @@ public class FirebaseMethods {
 
     }
 
-    private void insertFeedBack(String userName,String regNum,String driveName,String feedBack
+    private void insertObjectiveFeedBack(String driveKey,final int one, final int two, final int three,
+                                         final int four, final int five,String userID, final boolean authority){
+        ObjectiveFeedBack objectiveFeed = new ObjectiveFeedBack(one,two,three,four,five,userID,authority);
+
+        mDatabaseReference.child(mContext.getString(R.string.db_objective))
+                .child(driveKey)
+                .push()
+                .setValue(objectiveFeed);
+
+    }
+    /**
+     * FeedBack operation start
+     */
+
+    public void addFeedBack(final String driveKey,final String technical, final String hr, final String extra, final boolean authority){
+
+        Query query = mDatabaseReference.child(mContext.getString(R.string.db_User))
+                .child(mAuth.getCurrentUser().getUid()).child(mContext.getString(R.string.db_user_info));
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User_SignUp signup = dataSnapshot.getValue(User_SignUp.class);
+
+                String userID = (String) signup.getUser_ID();
+//                Toast.makeText(mContext, "userName "+userName, Toast.LENGTH_SHORT).show();
+                insertFeedBack(driveKey,userID,technical,hr,extra,authority);
+
+                Intent intent = new Intent(mContext, MainActivity.class);
+                mContext.startActivity(intent);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    private void insertFeedBack(String driveKey,String userID,String technical,String hr,String extra
                                  , boolean authority){
-        StudentFeedModel studentFeedback =  new StudentFeedModel(userName,regNum,driveName,feedBack,authority);
+        StudentFeedModel studentFeedback =  new StudentFeedModel(userID,technical,hr,extra,driveKey,authority);
         mDatabaseReference.child(mContext.getString(R.string.db_student_feedBack))
                 .push().setValue(studentFeedback);
+
     }
 
     public void uploadDrive(String driveName){
@@ -142,6 +184,15 @@ public class FirebaseMethods {
         UploadDriveModel driveModel = new UploadDriveModel(driveName);
         mDatabaseReference.child(mContext.getString(R.string.db_upload_drive))
                 .push().setValue(driveModel);
+
+    }
+
+
+    /**
+     * upload objective feed back portion start from here
+     */
+
+    public void firstQuestion(int yes,int no){
 
     }
 }

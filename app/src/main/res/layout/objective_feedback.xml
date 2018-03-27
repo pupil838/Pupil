@@ -1,0 +1,242 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linLayout"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayout1">
+
+            <TextView
+                android:id="@+id/first_quest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_question"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:padding="5dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/first_group"
+                android:layout_below="@+id/first_quest"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/first_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="10dp" />
+
+                <RadioButton
+                    android:id="@+id/first_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:checked="false"
+                    android:layout_marginLeft="30dp" />
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayout2">
+
+            <TextView
+                android:id="@+id/second_quest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/second_question"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:padding="5dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/second_group"
+                android:layout_below="@+id/second_quest"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/second_easy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Easy"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/second_difficult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Difficult"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"/>
+
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayout3">
+
+            <TextView
+                android:id="@+id/third_quest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/third_question"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:padding="5dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/third_group"
+                android:layout_below="@+id/third_quest"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/third_easy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Easy"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/third_difficult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Difficult"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"/>
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayout4">
+
+            <TextView
+                android:id="@+id/fourth_quest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fourth_question"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:padding="5dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fourth_group"
+                android:layout_below="@+id/fourth_quest"
+                android:orientation="horizontal" >
+
+
+                <RadioButton
+                    android:id="@+id/fourth_easy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Easy"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/fourth_difficult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Difficult"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"/>
+
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayout5">
+
+            <TextView
+                android:id="@+id/fifth_quest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fifth_question"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:padding="5dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fifth_group"
+                android:layout_below="@+id/fifth_quest"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/fifth_easy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Easy"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/fifth_difficult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Difficult"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"/>
+
+
+
+            </RadioGroup>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</merge>

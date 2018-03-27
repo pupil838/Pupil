@@ -1,0 +1,111 @@
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linLayout"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tech_relLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Give Technical FeedBack*"
+                android:id="@+id/feedback"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/tech_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/feedback"
+                android:layout_margin="10dp"
+                android:maxLines="50"
+                android:gravity="top|left"
+                android:textSize="16sp"
+                android:lines="5"
+                android:scrollbars="vertical"
+                android:padding="5dp"
+                android:hint="Technical Feedback"
+                android:background="@color/white"
+                android:elevation="5dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hr_relLayout"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Give HR FeedBack*"
+                android:id="@+id/hrfeedback"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/hr_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hrfeedback"
+                android:layout_margin="10dp"
+                android:maxLines="50"
+                android:gravity="top|left"
+                android:textSize="16sp"
+                android:lines="5"
+                android:scrollbars="vertical"
+                android:padding="5dp"
+                android:hint="HR Feedback"
+                android:background="@color/white"
+                android:elevation="5dp" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/extra_relLayout"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Misleneous FeedBack*"
+                android:id="@+id/extrafeedback"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/extra_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/extrafeedback"
+                android:layout_margin="10dp"
+                android:maxLines="50"
+                android:gravity="top|left"
+                android:textSize="16sp"
+                android:lines="5"
+                android:scrollbars="vertical"
+                android:padding="5dp"
+                android:hint="Extra Feedback"
+                android:background="@color/white"
+                android:elevation="5dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</merge>

@@ -74,9 +74,9 @@ public class AllFeedBack extends BaseFragment {
                     ) {
                         @Override
                         protected void populateViewHolder(MyHolder viewHolder, StudentFeedModel model, int position) {
-                            viewHolder.mCompanyName.setText(model.getDrive_Name());
-                            viewHolder.mFeedBack.setText(model.getFeedback());
-                            viewHolder.mUserName.setText(model.getUser_Name());
+                            viewHolder.mCompanyName.setText(model.getTechnical_feedBack());
+                            viewHolder.mFeedBack.setText(model.getHr_feedBack());
+                            viewHolder.mUserName.setText(model.getExtra_feedBack());
                             viewHolder.mReadFull.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {

@@ -11,12 +11,25 @@
     <string name="db_User">User</string>
     <string name="db_user_info">User_Info</string>
     <string name="db_upload_drive">Company_Name</string>
-
+    <string name="db_drive_field_nameCompany">company_name</string>
 
     <!--feedback -->
     <string name="db_student_feedBack">student_feedback</string>
     <string name="warning">Before Submit Feedback be sure it will check
         by Admin first then shown to everyone.So dont write anything wrong or fake.</string>
 
-    
+    <!-- Objective Questions -->
+    <string name="first_question">PPT Session is Helpful?*</string>
+    <string name="second_question">Level of Written Test/Online Test?*</string>
+    <string name="third_question">Level of GD Topic?*</string>
+    <string name="fourth_question">Level of Technical Interview?*</string>
+    <string name="fifth_question">Level of HR Interview?*</string>
+
+    <string name="db_objective">DB_Objective</string>
+    <string name="db_One">First</string>
+    <string name="db_Two">Two</string>
+    <string name="db_Three">Three</string>
+    <string name="db_Four">Four</string>
+    <string name="db_Five">Five</string>
+
 </resources>

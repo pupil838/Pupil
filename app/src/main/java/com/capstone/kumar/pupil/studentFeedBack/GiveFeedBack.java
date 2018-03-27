@@ -4,13 +4,17 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -42,18 +46,22 @@ public class GiveFeedBack extends BaseFragment {
     private FirebaseMethods firebaseMethods;
 
     private Spinner mDriveName;
-    private EditText mRegNumber;
-    private EditText  mFeedBack;
+    private RadioGroup firstGroup,secondGroup,thirdGroup,fourthGroup,fifthGroup;
+    private EditText techFeedBack;
+    private EditText  hrFeedBack;
+    private EditText extraFeedBack;
     private Button mSubmit;
     private boolean authority = false;
     private ProgressDialog mProgressDialog;
 
     //var
-    private String regnumber;
-    private String drivename;
-    private String feedback;
+    private String technicalFeed;
+    private String extraFeed;
+    private String hrFeed;
+    private String drivekey;
     private Context  mContext;
     private ArrayList<String>  arrayList;
+    int one,two,three,four,five;
 
     public static GiveFeedBack create(){
         return new GiveFeedBack();
@@ -67,10 +75,20 @@ public class GiveFeedBack extends BaseFragment {
     @Override
     public void inOnCreateView(View root, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        mRegNumber = (EditText)root.findViewById(R.id.reg_num);
         mDriveName = (Spinner)root.findViewById(R.id.drive_name);
-        mFeedBack = (EditText)root.findViewById(R.id.give_feedback);
+
+        firstGroup = (RadioGroup) root.findViewById(R.id.first_group);
+        secondGroup = (RadioGroup) root.findViewById(R.id.second_group);
+        thirdGroup = (RadioGroup) root.findViewById(R.id.third_group);
+        fourthGroup = (RadioGroup) root.findViewById(R.id.fourth_group);
+        fifthGroup = (RadioGroup) root.findViewById(R.id.fifth_group);
+
+        techFeedBack = (EditText)root.findViewById(R.id.tech_feedback);
+        hrFeedBack = (EditText)root.findViewById(R.id.hr_feedback);
+        extraFeedBack = (EditText)root.findViewById(R.id.extra_feedback);
+
         mSubmit = (Button)root.findViewById(R.id.submit_feedback);
+
         mContext =getActivity();
         firebaseMethods = new FirebaseMethods(mContext);
         mProgressDialog = new ProgressDialog(mContext);
@@ -78,26 +96,137 @@ public class GiveFeedBack extends BaseFragment {
 
         spinner();
 
+        objectiveQuestion();
+
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(mContext, "Value "+drivekey+" "+one+" "+two+" "+three+" "+four+" "+five, Toast.LENGTH_SHORT).show();
 
-                regnumber  =  mRegNumber.getText().toString();
-//                drivename = mDriveName.getText().toString();
-                feedback = mFeedBack.getText().toString();
+                technicalFeed  =  techFeedBack.getText().toString();
+                extraFeed = extraFeedBack.getText().toString();
+                hrFeed = hrFeedBack.getText().toString();
 
                 mProgressDialog.setMessage("FeedBack Uploading...");
                 mProgressDialog.show();
 
-                if(checkInput(regnumber,drivename,feedback)){
-//                    Toast.makeText(mContext, regnumber+ " "+drivename+" "+feedback, Toast.LENGTH_SHORT).show();
+                if(checkInput(technicalFeed,hrFeed,extraFeed)){
+                    Toast.makeText(mContext, technicalFeed+ " "+hrFeed+" "+extraFeed, Toast.LENGTH_SHORT).show();
 
-                    firebaseMethods.addFeedBack(regnumber, drivename, feedback, authority);
+                    firebaseMethods.addObjective(drivekey,one,two,three,four,five,authority);
+                    firebaseMethods.addFeedBack(drivekey,technicalFeed, hrFeed, extraFeed, authority);
 
 
                 }
+
             }
         });
+
+
+    }
+
+    private void objectiveQuestion(){
+
+
+        firstGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                int first = 0;
+                switch (checkedId){
+                    case R.id.first_yes:
+                        first = first+1;
+
+                        Toast.makeText(mContext, "YES "+first+" "+drivekey, Toast.LENGTH_SHORT).show();
+                        firebaseMethods.firstQuestion(first,0);
+                        break;
+
+                    case R.id.first_no:
+                        first = first-1;
+                        Toast.makeText(mContext, "NO "+first, Toast.LENGTH_SHORT).show();
+                        firebaseMethods.firstQuestion(0,first);
+                        break;
+                }
+                one = first;
+            }
+        });
+
+        secondGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                int second = 0;
+                switch (checkedId){
+                    case R.id.second_easy:
+                        second = second + 1;
+                        Toast.makeText(mContext, "Second Low + key"+second+drivekey, Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.second_difficult:
+                        second = second - 1;
+                        Toast.makeText(mContext, "Second Average "+second, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                two = second;
+            }
+        });
+
+        thirdGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                int third = 0;
+                switch (checkedId){
+                    case R.id.third_easy:
+                        third = third + 1;
+                        Toast.makeText(mContext, "third Low "+third, Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.third_difficult:
+                        third = third - 1;
+                        Toast.makeText(mContext, "third Average "+third, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                three = third;
+            }
+        });
+
+        fourthGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                int fourth = 0;
+                switch (checkedId){
+                    case R.id.fourth_easy:
+                        fourth = fourth + 1;
+                        Toast.makeText(mContext, "fourth Low "+fourth, Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.fourth_difficult:
+                        fourth = fourth - 1;
+                        Toast.makeText(mContext, "fourth Average "+fourth, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                four = fourth;
+            }
+        });
+
+        fifthGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                int fifth = 0;
+                switch (checkedId){
+                    case R.id.fifth_easy:
+                        fifth = fifth + 1;
+                        Toast.makeText(mContext, "fifth Low "+fifth, Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.fifth_difficult:
+                        fifth = fifth - 1;
+                        Toast.makeText(mContext, "fifth Average "+fifth, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                five = fifth;
+            }
+        });
+
+
     }
 
     private boolean checkInput(String regnum, String driveNam, String feedBak){
@@ -116,15 +245,66 @@ public class GiveFeedBack extends BaseFragment {
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference();
 
+        /**
+         * for fetching value in spinner from firebase.
+         */
         Query mQuery = mRef.child(getString(R.string.db_upload_drive))
                 .orderByValue();
 
         mQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds: dataSnapshot.getChildren()){
+                for(final DataSnapshot ds: dataSnapshot.getChildren()){
                     UploadDriveModel model = ds.getValue(UploadDriveModel.class);
                     arrayList.add(model.getCompany_name());
+
+
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext,android.R.layout.simple_list_item_1,arrayList);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    mDriveName.setAdapter(adapter);
+
+                    /**
+                     * after select name from spinner which company choose get its key value
+                     */
+                    mDriveName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                            String companyName = arrayList.get(position);
+
+                            //Toast.makeText(mContext, "Clicked value ", Toast.LENGTH_SHORT).show();
+
+                            /**
+                             * for getting key value of Company name
+                             */
+                            Query query = mRef.child(getString(R.string.db_upload_drive))
+                                    .orderByChild(getString(R.string.db_drive_field_nameCompany))
+                                    .equalTo(companyName);
+                            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot childSnap : dataSnapshot.getChildren()) {
+
+                                        drivekey = childSnap.getKey();
+
+                                        Toast.makeText(mContext, "Pressed " + drivekey, Toast.LENGTH_SHORT).show();
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
+                        }//end of onSelected item
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 }
             }
 
@@ -132,16 +312,9 @@ public class GiveFeedBack extends BaseFragment {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
-//
-//        arrayList.add("HELLO1");
-//        arrayList.add("HELLO2");
-//        arrayList.add("HELLO3");
-//        arrayList.add("HELLO4");
-//        arrayList.add("HELLO5");
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext,android.R.layout.simple_list_item_1,arrayList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mDriveName.setAdapter(adapter);
+        });//end of addValueListener
+
+
     }
 
 }

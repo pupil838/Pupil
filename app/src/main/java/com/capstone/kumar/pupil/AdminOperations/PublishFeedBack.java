@@ -85,9 +85,9 @@ public class PublishFeedBack extends AppCompatActivity {
 
                 StudentFeedModel  feedModel = dataSnapshot.getValue(StudentFeedModel.class);
 
-                mCompany.setText(feedModel.getDrive_Name());
-                mRegNum.setText(feedModel.getReg_No());
-                mFeedback.setText(feedModel.getFeedback());
+                mCompany.setText(feedModel.getTechnical_feedBack());
+                mRegNum.setText(feedModel.getHr_feedBack());
+                mFeedback.setText(feedModel.getExtra_feedBack());
 
             }
 
