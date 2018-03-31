@@ -66,7 +66,7 @@ public class AdminFeedBack  extends AppCompatActivity {
 
                         viewHolder.mCompanyName.setText(model.getTechnical_feedBack());
                         viewHolder.mFeedBack.setText(model.getHr_feedBack());
-                        viewHolder.mUserName.setText(model.getExtra_feedBack());
+//                        viewHolder.mUserName.setText(model.getExtra_feedBack());
                         viewHolder.mReadFull.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {

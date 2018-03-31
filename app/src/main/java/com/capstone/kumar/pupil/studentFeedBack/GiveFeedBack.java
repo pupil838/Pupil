@@ -59,6 +59,7 @@ public class GiveFeedBack extends BaseFragment {
     private String extraFeed;
     private String hrFeed;
     private String drivekey;
+    private String companyName;
     private Context  mContext;
     private ArrayList<String>  arrayList;
     int one,two,three,four,five;
@@ -113,8 +114,8 @@ public class GiveFeedBack extends BaseFragment {
                 if(checkInput(technicalFeed,hrFeed,extraFeed)){
                     Toast.makeText(mContext, technicalFeed+ " "+hrFeed+" "+extraFeed, Toast.LENGTH_SHORT).show();
 
-                    firebaseMethods.addObjective(drivekey,one,two,three,four,five,authority);
-                    firebaseMethods.addFeedBack(drivekey,technicalFeed, hrFeed, extraFeed, authority);
+                    firebaseMethods.addObjective(drivekey,companyName,one,two,three,four,five,authority);
+                    firebaseMethods.addFeedBack(drivekey,companyName,technicalFeed, hrFeed, extraFeed, authority);
 
 
                 }
@@ -137,13 +138,11 @@ public class GiveFeedBack extends BaseFragment {
                         first = first+1;
 
                         Toast.makeText(mContext, "YES "+first+" "+drivekey, Toast.LENGTH_SHORT).show();
-                        firebaseMethods.firstQuestion(first,0);
                         break;
 
                     case R.id.first_no:
                         first = first-1;
                         Toast.makeText(mContext, "NO "+first, Toast.LENGTH_SHORT).show();
-                        firebaseMethods.firstQuestion(0,first);
                         break;
                 }
                 one = first;
@@ -159,9 +158,13 @@ public class GiveFeedBack extends BaseFragment {
                         second = second + 1;
                         Toast.makeText(mContext, "Second Low + key"+second+drivekey, Toast.LENGTH_SHORT).show();
                         break;
+                    case R.id.second_average:
+                        second = second + 2;
+                        Toast.makeText(mContext, "Second Low + key"+second+drivekey, Toast.LENGTH_SHORT).show();
+                        break;
 
                     case R.id.second_difficult:
-                        second = second - 1;
+                        second = second + 3;
                         Toast.makeText(mContext, "Second Average "+second, Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -179,8 +182,13 @@ public class GiveFeedBack extends BaseFragment {
                         Toast.makeText(mContext, "third Low "+third, Toast.LENGTH_SHORT).show();
                         break;
 
+                    case R.id.third_average:
+                        third = third + 2;
+                        Toast.makeText(mContext, "Second Low + key"+third+drivekey, Toast.LENGTH_SHORT).show();
+                        break;
+
                     case R.id.third_difficult:
-                        third = third - 1;
+                        third = third + 3;
                         Toast.makeText(mContext, "third Average "+third, Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -198,8 +206,13 @@ public class GiveFeedBack extends BaseFragment {
                         Toast.makeText(mContext, "fourth Low "+fourth, Toast.LENGTH_SHORT).show();
                         break;
 
+                    case R.id.fourth_average:
+                        fourth = fourth + 2;
+                        Toast.makeText(mContext, "Second Low + key"+fourth+drivekey, Toast.LENGTH_SHORT).show();
+                        break;
+
                     case R.id.fourth_difficult:
-                        fourth = fourth - 1;
+                        fourth = fourth + 3;
                         Toast.makeText(mContext, "fourth Average "+fourth, Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -217,8 +230,13 @@ public class GiveFeedBack extends BaseFragment {
                         Toast.makeText(mContext, "fifth Low "+fifth, Toast.LENGTH_SHORT).show();
                         break;
 
+                    case R.id.fifth_average:
+                        fifth = fifth + 2;
+                        Toast.makeText(mContext, "Second Low + key"+fifth+drivekey, Toast.LENGTH_SHORT).show();
+                        break;
+
                     case R.id.fifth_difficult:
-                        fifth = fifth - 1;
+                        fifth = fifth + 3;
                         Toast.makeText(mContext, "fifth Average "+fifth, Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -270,7 +288,7 @@ public class GiveFeedBack extends BaseFragment {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                            String companyName = arrayList.get(position);
+                            companyName = arrayList.get(position);
 
                             //Toast.makeText(mContext, "Clicked value ", Toast.LENGTH_SHORT).show();
 

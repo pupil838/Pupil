@@ -12,19 +12,28 @@ public class ObjectiveFeedBack {
     private int three=0;
     private int four=0;
     private int five=0;
+    private int feedbacknumber=0;
+    private int total;
     private String userID="";
+    private String companyId = "";
+    private String company_Name = "";
     private boolean authority;
 
     public ObjectiveFeedBack() {
     }
 
-    public ObjectiveFeedBack(int one, int two, int three, int four, int five, String userID, boolean authority) {
+    public ObjectiveFeedBack(int one, int two, int three, int four, int five, int feedbacknumber,
+                             int total, String userID, String companyId, String company_Name, boolean authority) {
         this.one = one;
         this.two = two;
         this.three = three;
         this.four = four;
         this.five = five;
+        this.feedbacknumber = feedbacknumber;
+        this.total = total;
         this.userID = userID;
+        this.companyId = companyId;
+        this.company_Name = company_Name;
         this.authority = authority;
     }
 
@@ -68,12 +77,44 @@ public class ObjectiveFeedBack {
         this.five = five;
     }
 
+    public int getFeedbacknumber() {
+        return feedbacknumber;
+    }
+
+    public void setFeedbacknumber(int feedbacknumber) {
+        this.feedbacknumber = feedbacknumber;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
     public String getUserID() {
         return userID;
     }
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
+
+    public String getCompany_Name() {
+        return company_Name;
+    }
+
+    public void setCompany_Name(String company_Name) {
+        this.company_Name = company_Name;
     }
 
     public boolean isAuthority() {

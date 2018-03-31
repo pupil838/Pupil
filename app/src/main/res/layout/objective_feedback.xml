@@ -83,6 +83,15 @@
                     android:layout_marginLeft="10dp"/>
 
                 <RadioButton
+                    android:id="@+id/second_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <RadioButton
                     android:id="@+id/second_difficult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -124,6 +133,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Easy"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/third_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average"
                     android:checked="false"
                     android:layout_marginRight="30dp"
                     android:layout_marginLeft="10dp"/>
@@ -174,6 +192,17 @@
                     android:layout_marginRight="30dp"
                     android:layout_marginLeft="10dp"/>
 
+
+                <RadioButton
+                    android:id="@+id/fourth_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="10dp"/>
+
+
                 <RadioButton
                     android:id="@+id/fourth_difficult"
                     android:layout_width="wrap_content"
@@ -220,6 +249,16 @@
                     android:checked="false"
                     android:layout_marginRight="30dp"
                     android:layout_marginLeft="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/fifth_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Average"
+                    android:checked="false"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="10dp"/>
+
 
                 <RadioButton
                     android:id="@+id/fifth_difficult"

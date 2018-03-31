@@ -105,22 +105,64 @@ public class FirebaseMethods {
      * Objective feedback
      */
 
-    public void addObjective(final String driveKey, final int one, final int two, final int three, final int four,
+    public void addObjective(final String driveKey, final String companyName, final int one, final int two, final int three, final int four,
                              final int five, final boolean authority){
+
+        final int[] objectRecord = new int[7];
+        final int[] total = {0};
+        final int[] numberfeedback = {0};
         Query query = mDatabaseReference.child(mContext.getString(R.string.db_User))
                 .child(mAuth.getCurrentUser().getUid()).child(mContext.getString(R.string.db_user_info));
+
+        Query query1 = mDatabaseReference.child(mContext.getString(R.string.db_objective))
+                .child(driveKey).orderByValue();
+
+        query1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ObjectiveFeedBack object = dataSnapshot.getValue(ObjectiveFeedBack.class);
+                objectRecord[0] = object.getOne()+one;
+                objectRecord[1] = object.getTwo()+two;
+                objectRecord[2] = object.getThree()+three;
+                objectRecord[3] = object.getFour()+four;
+                objectRecord[4] = object.getFive()+five;
+                objectRecord[5] = object.getFeedbacknumber();
+
+                for(int i=0; i<5; i++){
+                    total[0] += objectRecord[i];
+                }
+
+                numberfeedback[0] = objectRecord[5] + 1;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 User_SignUp signup = dataSnapshot.getValue(User_SignUp.class);
 
                 String userID = (String) signup.getUser_ID();
-//                Toast.makeText(mContext, "userName "+userName, Toast.LENGTH_SHORT).show();
-                insertObjectiveFeedBack(driveKey,one,two,three,four,five,userID,authority);
+//              Toast.makeText(mContext, "userName "+userName, Toast.LENGTH_SHORT).show();
+
+                final int one1 = objectRecord[0];
+                final int two1 = objectRecord[1];
+                final int three1 = objectRecord[2];
+                final int four1 = objectRecord[3];
+                final int five1 = objectRecord[4];
+                final int total1  = total[0];
+                final int totalfeedback = numberfeedback[0];
+                insertObjectiveFeedBack(driveKey,companyName,one1,two1,three1,four1,five1,totalfeedback,total1,userID,authority);
 
                 Intent intent = new Intent(mContext, MainActivity.class);
                 mContext.startActivity(intent);
+
             }
 
             @Override
@@ -131,13 +173,13 @@ public class FirebaseMethods {
 
     }
 
-    private void insertObjectiveFeedBack(String driveKey,final int one, final int two, final int three,
-                                         final int four, final int five,String userID, final boolean authority){
-        ObjectiveFeedBack objectiveFeed = new ObjectiveFeedBack(one,two,three,four,five,userID,authority);
+    private void insertObjectiveFeedBack(String driveKey,String companyName,final int one, final int two, final int three,
+                                         final int four, final int five,final int totalfeed,final int total,String userID, final boolean authority){
+        ObjectiveFeedBack objectiveFeed = new ObjectiveFeedBack(one,two,three,four,five,totalfeed,
+                        total,userID,driveKey,companyName,authority);
 
         mDatabaseReference.child(mContext.getString(R.string.db_objective))
                 .child(driveKey)
-                .push()
                 .setValue(objectiveFeed);
 
     }
@@ -145,7 +187,8 @@ public class FirebaseMethods {
      * FeedBack operation start
      */
 
-    public void addFeedBack(final String driveKey,final String technical, final String hr, final String extra, final boolean authority){
+    public void addFeedBack(final String driveKey, final String companyName, final String technical, final String hr,
+                            final String extra, final boolean authority){
 
         Query query = mDatabaseReference.child(mContext.getString(R.string.db_User))
                 .child(mAuth.getCurrentUser().getUid()).child(mContext.getString(R.string.db_user_info));
@@ -157,7 +200,7 @@ public class FirebaseMethods {
 
                 String userID = (String) signup.getUser_ID();
 //                Toast.makeText(mContext, "userName "+userName, Toast.LENGTH_SHORT).show();
-                insertFeedBack(driveKey,userID,technical,hr,extra,authority);
+                insertFeedBack(driveKey, companyName,userID,technical,hr,extra,authority);
 
                 Intent intent = new Intent(mContext, MainActivity.class);
                 mContext.startActivity(intent);
@@ -171,10 +214,11 @@ public class FirebaseMethods {
 
     }
 
-    private void insertFeedBack(String driveKey,String userID,String technical,String hr,String extra
+    private void insertFeedBack(String driveKey, String companyName,String userID,String technical,String hr,String extra
                                  , boolean authority){
-        StudentFeedModel studentFeedback =  new StudentFeedModel(userID,technical,hr,extra,driveKey,authority);
+        StudentFeedModel studentFeedback =  new StudentFeedModel(userID,companyName,technical,hr,extra,driveKey,authority);
         mDatabaseReference.child(mContext.getString(R.string.db_student_feedBack))
+                .child(driveKey)
                 .push().setValue(studentFeedback);
 
     }
@@ -188,11 +232,4 @@ public class FirebaseMethods {
     }
 
 
-    /**
-     * upload objective feed back portion start from here
-     */
-
-    public void firstQuestion(int yes,int no){
-
-    }
 }

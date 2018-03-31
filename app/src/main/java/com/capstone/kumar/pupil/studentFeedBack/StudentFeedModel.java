@@ -9,6 +9,7 @@ public class StudentFeedModel {
 
 
     private String user_ID = "";
+    private String company_Name = "";
     private String technical_feedBack = "";
     private String hr_feedBack = "";
     private String extra_feedBack = "";
@@ -18,9 +19,10 @@ public class StudentFeedModel {
     public StudentFeedModel() {
     }
 
-    public StudentFeedModel(String user_ID, String technical_feedBack, String hr_feedBack,
+    public StudentFeedModel(String user_ID, String company_Name, String technical_feedBack, String hr_feedBack,
                             String extra_feedBack, String company_ID, boolean authority) {
         this.user_ID = user_ID;
+        this.company_Name = company_Name;
         this.technical_feedBack = technical_feedBack;
         this.hr_feedBack = hr_feedBack;
         this.extra_feedBack = extra_feedBack;
@@ -34,6 +36,14 @@ public class StudentFeedModel {
 
     public void setUser_ID(String user_ID) {
         this.user_ID = user_ID;
+    }
+
+    public String getCompany_Name() {
+        return company_Name;
+    }
+
+    public void setCompany_Name(String company_Name) {
+        this.company_Name = company_Name;
     }
 
     public String getTechnical_feedBack() {
