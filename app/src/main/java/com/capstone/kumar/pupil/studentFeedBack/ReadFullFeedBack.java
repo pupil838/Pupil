@@ -80,8 +80,10 @@ public class ReadFullFeedBack extends AppCompatActivity {
 
         mQuery  = mRef.child(getString(R.string.db_objective))
                 .child(key);
+
         mQuery1 = mRef.child(getString(R.string.db_student_feedBack))
-                .child(key).orderByValue();
+                .child(key).orderByChild("authority").equalTo("Publish");
+
         mQuery1.keepSynced(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());

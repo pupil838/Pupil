@@ -57,10 +57,7 @@ public class AllFeedBack extends BaseFragment {
             myRef = database.getReference();
             myRef.keepSynced(true);
 
-//            mQuery = myRef.child(getString(R.string.db_student_feedBack))
-//                     .orderByChild("authority").equalTo(true);
-
-        mQuery = myRef.child(getString(R.string.db_objective)).orderByValue();
+            mQuery = myRef.child(getString(R.string.db_objective)).orderByValue();
             mQuery.keepSynced(true);
 
             mRecyclerView = (RecyclerView) root.findViewById(R.id.feedBack_recyclerView);
@@ -73,32 +70,6 @@ public class AllFeedBack extends BaseFragment {
             allRecord();
 
     }
-//
-//    private void allRecord(){
-//
-//            FirebaseRecyclerAdapter<StudentFeedModel, MyHolder> recyclerAdapter = new
-//                    FirebaseRecyclerAdapter<StudentFeedModel, MyHolder>(
-//                            StudentFeedModel.class,
-//                            R.layout.feedback_items,
-//                            MyHolder.class, mQuery
-//                    ) {
-//                        @Override
-//                        protected void populateViewHolder(MyHolder viewHolder, StudentFeedModel model, int position) {
-//                            viewHolder.mCompanyName.setText(model.getTechnical_feedBack());
-//                            viewHolder.mFeedBack.setText(model.getHr_feedBack());
-//                            viewHolder.mUserName.setText(model.getExtra_feedBack());
-//                            viewHolder.mReadFull.setOnClickListener(new View.OnClickListener() {
-//                                @Override
-//                                public void onClick(View v) {
-//                                    startActivity(new Intent(getContext(), MainActivity.class));
-//                                }
-//                            });
-//                        }
-//                    };
-//
-//            mRecyclerView.setAdapter(recyclerAdapter);
-//
-//    }
 
     private void allRecord(){
 

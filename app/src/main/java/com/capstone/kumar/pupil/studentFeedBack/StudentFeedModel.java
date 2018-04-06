@@ -14,13 +14,12 @@ public class StudentFeedModel {
     private String hr_feedBack = "";
     private String extra_feedBack = "";
     private String company_ID = "";
-    private boolean authority;
+    private String authority = "";
 
     public StudentFeedModel() {
     }
 
-    public StudentFeedModel(String user_ID, String company_Name, String technical_feedBack, String hr_feedBack,
-                            String extra_feedBack, String company_ID, boolean authority) {
+    public StudentFeedModel(String user_ID, String company_Name, String technical_feedBack, String hr_feedBack, String extra_feedBack, String company_ID, String authority) {
         this.user_ID = user_ID;
         this.company_Name = company_Name;
         this.technical_feedBack = technical_feedBack;
@@ -78,11 +77,11 @@ public class StudentFeedModel {
         this.company_ID = company_ID;
     }
 
-    public boolean isAuthority() {
+    public String getAuthority() {
         return authority;
     }
 
-    public void setAuthority(boolean authority) {
+    public void setAuthority(String authority) {
         this.authority = authority;
     }
 }

@@ -43,7 +43,8 @@ public class LandingFragment extends BaseFragment {
         myRef = database.getReference();
         myRef.keepSynced(true);
 
-        mQuery = myRef.child(getString(R.string.db_student_feedBack)).orderByValue();
+        mQuery = myRef.child(getString(R.string.db_student_feedBack))
+                .orderByValue();
         mQuery.keepSynced(true);
 
         mRecyclerView = (RecyclerView) root.findViewById(R.id.listOfAllDrive);

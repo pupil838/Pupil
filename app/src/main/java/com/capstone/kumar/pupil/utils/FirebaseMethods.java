@@ -106,7 +106,7 @@ public class FirebaseMethods {
      */
 
     public void addObjective(final String driveKey, final String companyName, final int one, final int two, final int three, final int four,
-                             final int five, final boolean authority){
+                             final int five, final String authority){
 
         final int[] objectRecord = new int[7];
         final int[] total = {0};
@@ -121,12 +121,22 @@ public class FirebaseMethods {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ObjectiveFeedBack object = dataSnapshot.getValue(ObjectiveFeedBack.class);
-                objectRecord[0] = object.getOne()+one;
-                objectRecord[1] = object.getTwo()+two;
-                objectRecord[2] = object.getThree()+three;
-                objectRecord[3] = object.getFour()+four;
-                objectRecord[4] = object.getFive()+five;
-                objectRecord[5] = object.getFeedbacknumber();
+                try {
+                    objectRecord[0] = object.getOne() + one;
+                    objectRecord[1] = object.getTwo() + two;
+                    objectRecord[2] = object.getThree() + three;
+                    objectRecord[3] = object.getFour() + four;
+                    objectRecord[4] = object.getFive() + five;
+                    objectRecord[5] = object.getFeedbacknumber();
+                }catch (NullPointerException e){
+                    objectRecord[0] = 0;
+                    objectRecord[1] = 0;
+                    objectRecord[2] = 0;
+                    objectRecord[3] = 0;
+                    objectRecord[4] = 0;
+                    objectRecord[5] = 0;
+
+                }
 
                 for(int i=0; i<5; i++){
                     total[0] += objectRecord[i];
@@ -174,7 +184,9 @@ public class FirebaseMethods {
     }
 
     private void insertObjectiveFeedBack(String driveKey,String companyName,final int one, final int two, final int three,
-                                         final int four, final int five,final int totalfeed,final int total,String userID, final boolean authority){
+                                         final int four, final int five,final int totalfeed,final int total
+            ,String userID, final String authority){
+
         ObjectiveFeedBack objectiveFeed = new ObjectiveFeedBack(one,two,three,four,five,totalfeed,
                         total,userID,driveKey,companyName,authority);
 
@@ -188,7 +200,7 @@ public class FirebaseMethods {
      */
 
     public void addFeedBack(final String driveKey, final String companyName, final String technical, final String hr,
-                            final String extra, final boolean authority){
+                            final String extra, final String authority){
 
         Query query = mDatabaseReference.child(mContext.getString(R.string.db_User))
                 .child(mAuth.getCurrentUser().getUid()).child(mContext.getString(R.string.db_user_info));
@@ -215,7 +227,7 @@ public class FirebaseMethods {
     }
 
     private void insertFeedBack(String driveKey, String companyName,String userID,String technical,String hr,String extra
-                                 , boolean authority){
+                                 , String authority){
         StudentFeedModel studentFeedback =  new StudentFeedModel(userID,companyName,technical,hr,extra,driveKey,authority);
         mDatabaseReference.child(mContext.getString(R.string.db_student_feedBack))
                 .child(driveKey)

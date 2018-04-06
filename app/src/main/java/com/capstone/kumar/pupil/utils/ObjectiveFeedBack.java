@@ -17,13 +17,13 @@ public class ObjectiveFeedBack {
     private String userID="";
     private String companyId = "";
     private String company_Name = "";
-    private boolean authority;
+    private String authority = "";
 
     public ObjectiveFeedBack() {
     }
 
-    public ObjectiveFeedBack(int one, int two, int three, int four, int five, int feedbacknumber,
-                             int total, String userID, String companyId, String company_Name, boolean authority) {
+    public ObjectiveFeedBack(int one, int two, int three, int four, int five,
+                             int feedbacknumber, int total, String userID, String companyId, String company_Name, String authority) {
         this.one = one;
         this.two = two;
         this.three = three;
@@ -117,11 +117,11 @@ public class ObjectiveFeedBack {
         this.company_Name = company_Name;
     }
 
-    public boolean isAuthority() {
+    public String getAuthority() {
         return authority;
     }
 
-    public void setAuthority(boolean authority) {
+    public void setAuthority(String authority) {
         this.authority = authority;
     }
 }

@@ -29,6 +29,7 @@
         <activity android:name=".AdminOperations.PublishFeedBack" ></activity>
         <activity android:name=".AdminUploadDrive.UploadDrive" ></activity>
         <activity android:name=".studentFeedBack.ReadFullFeedBack" ></activity>
+        <activity android:name=".AdminOperations.CompanyFeedBack" ></activity>
     </application>
 
 </manifest>

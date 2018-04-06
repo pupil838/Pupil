@@ -51,7 +51,7 @@ public class GiveFeedBack extends BaseFragment {
     private EditText  hrFeedBack;
     private EditText extraFeedBack;
     private Button mSubmit;
-    private boolean authority = false;
+    private String authority = "UnPublish";
     private ProgressDialog mProgressDialog;
 
     //var
