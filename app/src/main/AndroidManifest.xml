@@ -30,6 +30,11 @@
         <activity android:name=".AdminUploadDrive.UploadDrive" ></activity>
         <activity android:name=".studentFeedBack.ReadFullFeedBack" ></activity>
         <activity android:name=".AdminOperations.CompanyFeedBack" ></activity>
+        <activity android:name=".TrendQuest.AdminTrendingQuestion" ></activity>
+        <activity android:name=".TrendQuest.AdminTrendSecondPage" ></activity>
+        <activity android:name=".TrendQuest.EnterTrendQuest" ></activity>
+        <activity android:name=".TrendQuest.AdminTrendThirdPage" ></activity>
+
     </application>
 
 </manifest>

@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.capstone.kumar.pupil.MainActivity;
 import com.capstone.kumar.pupil.R;
+import com.capstone.kumar.pupil.TrendQuest.AdminTrendSecondPage;
+import com.capstone.kumar.pupil.TrendQuest.AdminTrendingQuestion;
 import com.capstone.kumar.pupil.studentFeedBack.StudentFeedModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import static java.security.AccessController.getContext;
 
 /**
  * Created by kumar on 3/11/2018.
@@ -235,13 +239,101 @@ public class FirebaseMethods {
 
     }
 
-    public void uploadDrive(String driveName){
+    public void uploadDrive(final String driveName, final String driveDate, final String saleryPack, final String standingArea,
+                            final String jobProfile, final String skillRequired, final String bondDetail,
+                            final String aboutComp, final String joiningDate, final String jobLocation){
 
-        UploadDriveModel driveModel = new UploadDriveModel(driveName);
+        mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                insertDrive(driveName,driveDate,saleryPack,standingArea,
+                        jobProfile,skillRequired,bondDetail,aboutComp,joiningDate,jobLocation);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    private void insertDrive(String driveName, String driveDate, String saleryPack, String standingArea,
+                             String jobProfile, String skillRequired, String bondDetail,
+                             String aboutComp, String joiningDate, String jobLocation){
+
+        UploadDriveModel driveModel = new UploadDriveModel(driveName,driveDate,saleryPack,standingArea,
+                jobProfile,skillRequired,bondDetail,aboutComp,joiningDate,jobLocation);
+
         mDatabaseReference.child(mContext.getString(R.string.db_upload_drive))
                 .push().setValue(driveModel);
 
     }
 
+
+    public void aMCATDATA(final String regNum, final String english, final String quant, final String logical, final String ampi,
+                          final String info, final String compProg, final String compSci){
+
+
+
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                addAmCatValues(regNum,english,quant,logical,ampi,info,compProg,compSci);
+                mContext.startActivity(new Intent(mContext,MainActivity.class));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    private void addAmCatValues(String regNum, String english, String quant, String logical, String ampi,
+                                String info, String compProg, String compSci){
+
+        AmcatMarksUpload amcatMarksUpload = new AmcatMarksUpload(regNum, english, quant, logical,
+                ampi, info, compProg, compSci);
+
+        mDatabaseReference.child(mContext.getString(R.string.db_amcat_marks))
+                .child(mAuth.getCurrentUser().getUid())
+                .setValue(amcatMarksUpload);
+
+    }
+
+    public void addTrendingQuestion(final String categoryName, final String drivekey, final String companyName,
+                                    final String question, final String answer){
+
+        mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                insertTrendingQuestion(categoryName,drivekey,companyName,question,answer);
+                mContext.startActivity(new Intent(mContext,AdminTrendingQuestion.class));
+
+             }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void insertTrendingQuestion(String categoryName,String driveKey,String companyName
+            ,String question,String answer){
+
+        TrendingQuestionModel trendingQuestionModel = new TrendingQuestionModel(companyName,question,answer,driveKey);
+
+        mDatabaseReference.child(mContext.getString(R.string.db_trending_questions)).child(categoryName)
+                .push().setValue(trendingQuestionModel);
+
+    }
 
 }

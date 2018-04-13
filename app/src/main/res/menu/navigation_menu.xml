@@ -18,7 +18,7 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_password_icon"
-            android:title="Resume" />
+            android:title="Assessment" />
 
         <item
             android:id="@+id/nav_slideshow"
@@ -31,4 +31,5 @@
             android:title="Log Out" />
 
 </group>
+
 </menu>

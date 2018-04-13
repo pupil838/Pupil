@@ -1,35 +1,351 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/editTextBackgroun">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
-        android:orientation="vertical"
-        android:layout_centerInParent="true">
-
+        android:layout_height="50dp"
+        android:id="@+id/relLayout1"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginBottom="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Company Name:"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
             android:textSize="20sp"
-            android:textColor="@color/black"
-            android:padding="10dp" />
+            android:text="Upload Drive"/>
+    </RelativeLayout>
 
-        <EditText
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/relLayout1">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Google.com"
-            android:id="@+id/company_name"
-            android:textSize="18sp" />
+            android:id="@+id/linearLayout"
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            android:id="@+id/upload_drive" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout1"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Company Name:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Company Name"
+                    android:id="@+id/company_name"
+                    android:textSize="18sp"
+                    android:lines="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout2"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Drive Date:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Drive Date"
+                    android:id="@+id/drive_date"
+                    android:textSize="18sp"
+                    android:lines="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout3"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Salary Package:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Salary Package"
+                    android:id="@+id/salary_package"
+                    android:textSize="18sp"
+                    android:lines="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout4"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Standing Area:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Standing Area"
+                    android:id="@+id/standing_area"
+                    android:textSize="18sp"
+                    android:lines="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout5"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Job Profile:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Job Profile"
+                    android:id="@+id/job_profile"
+                    android:textSize="18sp"
+                    android:lines="7"
+                    android:gravity="left|top"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout6"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Skill Required:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Skill Required"
+                    android:id="@+id/skillRequired"
+                    android:textSize="18sp"
+                    android:lines="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout7"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bond Detail:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Bond Detail"
+                    android:id="@+id/bondDetail"
+                    android:textSize="18sp"
+                    android:lines="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout8"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About Company:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="About Company"
+                    android:id="@+id/companyDetail"
+                    android:textSize="18sp"
+                    android:lines="5"
+                    android:gravity="top|left"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout9"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:elevation="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Joining Date:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Joining Date"
+                    android:id="@+id/joiningDate"
+                    android:textSize="18sp"
+                    android:lines="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linLayout10"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:elevation="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Job Location:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Punjab,India"
+                    android:id="@+id/jobLocation"
+                    android:textSize="18sp"
+                    android:lines="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bottom_border_white"
+                    android:backgroundTint="@color/black" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Submit"
+                android:id="@+id/upload_drive"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

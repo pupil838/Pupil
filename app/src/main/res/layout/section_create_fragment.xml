@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:id="@+id/scroll">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout1"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Subject*"
+                android:id="@+id/drivename"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/choose_subject"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/drivename"
+                android:backgroundTint="@color/black" >
+
+            </Spinner>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayout2"
+            android:layout_below="@+id/relativeLayout1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/parentLin1"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childLin1"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Section Name*"
+                        android:textSize="15sp"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sectionName"
+                        android:background="@drawable/bottom_border_white"
+                        android:backgroundTint="@color/black"
+                        android:padding="4dp"
+                        android:inputType="textWebEditText"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childLin2"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marks LessThen*"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"/>
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lessThen"
+                        android:background="@drawable/bottom_border_white"
+                        android:backgroundTint="@color/black"
+                        android:padding="4dp"
+                        android:inputType="number"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relLayoutShow"
+                android:layout_below="@id/parentLin1"
+                android:gravity="center">
+
+
+                <Button
+                    android:id="@+id/show_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="SHOW List"
+                    android:textSize="18sp"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/white"
+                    android:padding="10dp"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listrelLayout"
+            android:layout_below="@+id/relLayout2"
+            android:layout_marginBottom="50dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:id="@+id/show_student_list">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/make_section"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:text="Make Section"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimaryDark" />
+
+</RelativeLayout>
+</ScrollView>
+</RelativeLayout>

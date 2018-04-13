@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/editTextBackgroun">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayout_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeLayoutAbove"
+                android:elevation="3dp"
+                android:background="@color/white"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linLayout1"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linLayout"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Registration Number"
+                            android:textColor="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/amcat_regNumber"
+                            android:background="@drawable/bottom_border_white"
+                            android:backgroundTint="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp"
+                            android:hint="11504040"
+                            android:inputType="number" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="COMPULSARY*"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linLayout2"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
+
+                        <TextView
+                            android:layout_width="270dp"
+                            android:layout_height="wrap_content"
+                            android:text="EGLISH*(%)"
+                            android:textColor="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/amcat_english"
+                            android:background="@drawable/bottom_border_white"
+                            android:backgroundTint="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp"
+                            android:inputType="numberDecimal"
+                            android:hint="65.5"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linLayout3"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
+
+                        <TextView
+                            android:layout_width="270dp"
+                            android:layout_height="wrap_content"
+                            android:text="Quantitative Ability Tech*(%)"
+                            android:textColor="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/amcat_Quant"
+                            android:background="@drawable/bottom_border_white"
+                            android:backgroundTint="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp"
+                            android:inputType="numberDecimal"
+                            android:hint="65.5"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linLayout4"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
+
+                        <TextView
+                            android:layout_width="270dp"
+                            android:layout_height="wrap_content"
+                            android:text="Logical Ability*(%)"
+                            android:textColor="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/amcat_Logical"
+                            android:background="@drawable/bottom_border_white"
+                            android:backgroundTint="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp"
+                            android:inputType="numberDecimal"
+                            android:hint="65.5"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linLayout5"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
+
+                        <TextView
+                            android:layout_width="270dp"
+                            android:layout_height="wrap_content"
+                            android:text="AMPI(Aspiring Mind Personality Inventor)*(%)"
+                            android:textColor="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/amcat_ampi"
+                            android:background="@drawable/bottom_border_white"
+                            android:backgroundTint="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp"
+                            android:inputType="numberDecimal"
+                            android:hint="65.5"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linLayout6"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
+
+                        <TextView
+                            android:layout_width="270dp"
+                            android:layout_height="wrap_content"
+                            android:text="Information Gathering And Synthesis*(%)"
+                            android:textColor="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/amcat_IGS"
+                            android:background="@drawable/bottom_border_white"
+                            android:backgroundTint="@color/black"
+                            android:padding="10dp"
+                            android:textSize="18sp"
+                            android:inputType="numberDecimal"
+                            android:hint="65.5"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayoutbelow"
+            android:layout_below="@+id/relativeLayoutAbove"
+            android:elevation="3dp"
+            android:background="@color/white"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linLayout7"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:elevation="2dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ENGINEERING"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linLayout8"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        android:layout_width="270dp"
+                        android:layout_height="wrap_content"
+                        android:text="Computer Programming*(%)"
+                        android:textColor="@color/black"
+                        android:padding="10dp"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/amcat_compProgramming"
+                        android:background="@drawable/bottom_border_white"
+                        android:backgroundTint="@color/black"
+                        android:padding="10dp"
+                        android:textSize="18sp"
+                        android:inputType="numberDecimal"
+                        android:hint="65.5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linLayout9"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        android:layout_width="270dp"
+                        android:layout_height="wrap_content"
+                        android:text="Computer Science*(%)"
+                        android:textColor="@color/black"
+                        android:padding="10dp"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/amcat_compScience"
+                        android:background="@drawable/bottom_border_white"
+                        android:backgroundTint="@color/black"
+                        android:padding="10dp"
+                        android:textSize="18sp"
+                        android:inputType="numberDecimal"
+                        android:hint="65.5" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayoutbelow"
+                android:elevation="3dp"
+                android:layout_margin="10dp">
+
+                <Button
+                    android:id="@+id/amcat_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Submit"
+                    android:textSize="20sp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

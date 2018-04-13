@@ -11,26 +11,46 @@
         android:elevation="10dp">
 
         <TextView
+            android:id="@+id/heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Admin Check Feedback"
+            android:text="Admin Operation"
             android:textColor="@color/white"
             android:layout_centerVertical="true"
             android:textSize="20sp"
             android:layout_margin="5dp"
             android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/publish_btn"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonLin"
+            android:orientation="horizontal"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:text="Publish"
-            android:elevation="2dp"
-            android:layout_centerVertical="true"
-            android:background="@drawable/feedbackform_border"
-            android:textColor="@color/colorPrimary"/>
+            android:layout_centerVertical="true">
+
+            <Button
+                android:id="@+id/deleteFeedback"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Delete"
+                android:elevation="2dp"
+                android:background="@drawable/feedbackform_border"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginRight="5dp"/>
+
+            <Button
+                android:id="@+id/publish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:text="Publish"
+                android:elevation="2dp"
+                android:background="@drawable/feedbackform_border"
+                android:textColor="@color/colorPrimary"/>
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 

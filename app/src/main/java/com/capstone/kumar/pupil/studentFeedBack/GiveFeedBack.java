@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -51,6 +52,7 @@ public class GiveFeedBack extends BaseFragment {
     private EditText  hrFeedBack;
     private EditText extraFeedBack;
     private Button mSubmit;
+
     private String authority = "UnPublish";
     private ProgressDialog mProgressDialog;
 
@@ -99,6 +101,40 @@ public class GiveFeedBack extends BaseFragment {
 
         objectiveQuestion();
 
+        /**
+         * when start activity edittext set NoFocusable
+         */
+        techFeedBack.setFocusable(false);
+        techFeedBack.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                techFeedBack.setFocusableInTouchMode(true);
+                return false;
+            }
+        });
+
+        hrFeedBack.setFocusable(false);
+        hrFeedBack.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hrFeedBack.setFocusableInTouchMode(true);
+                return false;
+            }
+        });
+
+        extraFeedBack.setFocusable(false);
+        extraFeedBack.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                extraFeedBack.setFocusableInTouchMode(true);
+                return false;
+            }
+        });
+
+        /**
+         * end of EditText Focusable
+         */
+
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,17 +153,13 @@ public class GiveFeedBack extends BaseFragment {
                     firebaseMethods.addObjective(drivekey,companyName,one,two,three,four,five,authority);
                     firebaseMethods.addFeedBack(drivekey,companyName,technicalFeed, hrFeed, extraFeed, authority);
 
-
                 }
-
             }
         });
-
 
     }
 
     private void objectiveQuestion(){
-
 
         firstGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -243,8 +275,6 @@ public class GiveFeedBack extends BaseFragment {
                 five = fifth;
             }
         });
-
-
     }
 
     private boolean checkInput(String regnum, String driveNam, String feedBak){
@@ -331,7 +361,6 @@ public class GiveFeedBack extends BaseFragment {
 
             }
         });//end of addValueListener
-
 
     }
 

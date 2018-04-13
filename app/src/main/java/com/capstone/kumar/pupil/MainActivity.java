@@ -3,6 +3,7 @@ package com.capstone.kumar.pupil;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,7 +16,10 @@ import android.widget.Toast;
 
 import com.capstone.kumar.pupil.AdminOperations.AdminFeedBack;
 import com.capstone.kumar.pupil.AdminUploadDrive.UploadDrive;
+import com.capstone.kumar.pupil.Section.SectionCreateFragment;
+import com.capstone.kumar.pupil.TrendQuest.AdminTrendingQuestion;
 import com.capstone.kumar.pupil.studentFeedBack.GiveFeedBack;
+import com.capstone.kumar.pupil.studentfragments.AmcatEnterFeildFragment;
 import com.capstone.kumar.pupil.studentfragments.LandingFragment;
 import com.capstone.kumar.pupil.studentfragments.Profile_Fragment;
 import com.capstone.kumar.pupil.studentfragments.UpComingDrive;
@@ -29,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements
 
     //firebase
     private FirebaseAuth mAuth;
+    String mAdmin;
+
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggel;
@@ -47,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements
         setSupportActionBar(mToolbar);
 
         mAuth = FirebaseAuth.getInstance();
+        mAdmin = mAuth.getCurrentUser().getUid();
 
         mFloatingActionMenu = (FloatingActionMenu) findViewById(R.id.floatingActionMenu);
         mEdit  = (FloatingActionButton)  findViewById(R.id.floatingActionItem3);
@@ -66,13 +73,12 @@ public class MainActivity extends AppCompatActivity implements
         /**
          * for admin when he login then he see diffrent options on floating button.
          */
-        String mAdmin = mAuth.getCurrentUser().getUid();
 
-        if(mAdmin.equals("qd89XnePKIV2DlydvLucseFdMUO2")) {
+        if(mAdmin.equals(getString(R.string.admin_ID))) {
 
             mEdit.setLabelText("FeedBack");
             mPhoto.setLabelText("Upload Drive");
-            mRecord.setLabelText("Admin3");
+            mRecord.setLabelText("Trending Question");
 
             mEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -80,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements
 //                    Toast.makeText(MainActivity.this, "Admin Operation Clicked", Toast.LENGTH_SHORT).show();
 
                     startActivity(new Intent(MainActivity.this, AdminFeedBack.class));
+                    mFloatingActionMenu.close(true);
+
                 }
             });
 
@@ -88,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements
                 public void onClick(View v) {
 //                    Toast.makeText(MainActivity.this, "Upload Drive Clicked", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this, UploadDrive.class));
+                    mFloatingActionMenu.close(true);
 
                 }
             });
@@ -95,10 +104,12 @@ public class MainActivity extends AppCompatActivity implements
             mRecord.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, "Admin3 Clicked", Toast.LENGTH_SHORT).show();
+
+                    startActivity(new Intent(MainActivity.this,AdminTrendingQuestion.class));
+                    mFloatingActionMenu.close(true);
+
                 }
             });
-
 
         }else{
 
@@ -127,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(MainActivity.this, "Record Clicked", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this,AdminTrendingQuestion.class));
                     mFloatingActionMenu.close(true);
                 }
             });
@@ -168,11 +180,20 @@ public class MainActivity extends AppCompatActivity implements
 
         } else if (id == R.id.nav_gallery) {
 
-            Profile_Fragment pf = new Profile_Fragment();
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.content_frame,pf)
-                    .addToBackStack(null)
-                    .commit();
+
+            if(mAdmin.equals("qd89XnePKIV2DlydvLucseFdMUO2")) {
+                SectionCreateFragment pf = new SectionCreateFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.content_frame, pf)
+                        .addToBackStack(null)
+                        .commit();
+            }else {
+                AmcatEnterFeildFragment pf = new AmcatEnterFeildFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.content_frame, pf)
+                        .addToBackStack(null)
+                        .commit();
+            }
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -186,12 +207,16 @@ public class MainActivity extends AppCompatActivity implements
         return true;
     }
 
+
     /**
      * when click back button then app finish all activity  and close
      */
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+
+        ActivityCompat.finishAffinity(MainActivity.this);
+
     }
+
 }

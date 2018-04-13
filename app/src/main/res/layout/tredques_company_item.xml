@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="10dp"
+    android:elevation="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relLayout1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/companyName"
+            android:text="companyName"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/question"
+            android:layout_below="@+id/companyName"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:text="Question"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:maxLength="100"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/clickMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="Read Full"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

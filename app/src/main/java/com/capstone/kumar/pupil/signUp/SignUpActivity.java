@@ -41,7 +41,6 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseMethods mFirebaseMethods;
     private ProgressDialog mProgressDialog;
 
-
     //var
     private String append = "";
     private Context mContext;
@@ -51,8 +50,6 @@ public class SignUpActivity extends AppCompatActivity {
     private Double cgpa;
     private TextView mRandomNumGenerate;
     private Button mSignUp;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +63,6 @@ public class SignUpActivity extends AppCompatActivity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
-
 
         initWidgets();
         startSignUp();

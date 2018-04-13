@@ -1,5 +1,6 @@
 package com.capstone.kumar.pupil.AdminOperations;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -52,9 +53,9 @@ public class PublishFeedBack extends AppCompatActivity {
     private TextView mTechnical;
     private TextView mHr;
     private TextView mExtra;
+    private Button mDelete;
 
     private double first,second,third,four,five,total;
-
     private Button mPublish;
 
     //var
@@ -64,6 +65,7 @@ public class PublishFeedBack extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.publish_feedback);
 
+        mDelete = (Button) findViewById(R.id.deleteFeedback);
         mPublish = (Button) findViewById(R.id.publish_btn);
 
         mKey = (TextView) findViewById(R.id.key);
@@ -84,16 +86,12 @@ public class PublishFeedBack extends AppCompatActivity {
         mChart.getContentDescription();
         mChart.setDrawGridBackground(false);
 
-
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference();
 
         final String key = getIntent().getStringExtra("feedback_key");
         final String companyKey = getIntent().getStringExtra("company_key");
-
-
-
 
         mQuery1  = mRef.child(getString(R.string.db_objective))
                 .child(companyKey);
@@ -103,9 +101,9 @@ public class PublishFeedBack extends AppCompatActivity {
         //mQuery.keepSynced(true);
 
 
-
         makingGraph();
 
+        deleteFeedback();
         fetchAllSubjectiveFeedback();
 
         mQuery.addValueEventListener(new ValueEventListener() {
@@ -114,8 +112,9 @@ public class PublishFeedBack extends AppCompatActivity {
 
                 StudentFeedModel  feedModel = dataSnapshot.getValue(StudentFeedModel.class);
 
-                clickButton = feedModel.getAuthority();
-                mPublish.setText(clickButton);
+                try{
+                    clickButton = feedModel.getAuthority();
+                    mPublish.setText(clickButton);
 
                 mPublish.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -137,14 +136,15 @@ public class PublishFeedBack extends AppCompatActivity {
                                     .child(companyKey)
                                     .child(key).child("authority")
                                     .setValue("UnPublish");
-
                         }
-
                     }
                 });
 
-            }
+                }catch (NullPointerException e){
 
+                }
+
+            }
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -153,26 +153,58 @@ public class PublishFeedBack extends AppCompatActivity {
 
     }
 
-    private void fetchAllSubjectiveFeedback(){
+    private void deleteFeedback(){
 
-
-        mQuery.addValueEventListener(new ValueEventListener() {
+        mDelete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onClick(View v) {
+                /**
+                 * Codeing for delete Subjective feedback
+                 */
+                mQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        dataSnapshot.getRef().removeValue();
+                        startActivity(new Intent(PublishFeedBack.this,AdminFeedBack.class));
+                        finish();
+                    }
 
-                StudentFeedModel  feedModel = dataSnapshot.getValue(StudentFeedModel.class);
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
-                mTechnical.setText(feedModel.getTechnical_feedBack());
-                mHr.setText(feedModel.getHr_feedBack());
-                mExtra.setText(feedModel.getExtra_feedBack());
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
 
             }
         });
+    }
+
+    private void fetchAllSubjectiveFeedback(){
+
+
+            mQuery.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    StudentFeedModel feedModel = dataSnapshot.getValue(StudentFeedModel.class);
+
+                    try {
+
+                        mTechnical.setText(feedModel.getTechnical_feedBack());
+                        mHr.setText(feedModel.getHr_feedBack());
+                        mExtra.setText(feedModel.getExtra_feedBack());
+
+                    }catch (NullPointerException e){
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
 
     }
 
