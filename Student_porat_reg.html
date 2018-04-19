@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        #box {
+            background-color: rgba(5, 4, 2, 0.1);
+            width: 850px;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+
+        #img-upload {
+            width: 50%;
+        }
+    </style>
+    <script>
+        var x = init();
+        window.onload = x;
+        function init() {
+            const config = {
+                apiKey: "AIzaSyC46K-SwsRLciW-Me7g8HXu5jJlw-id3OE",
+                authDomain: "pupil-3e3ed.firebaseapp.com",
+                databaseURL: "https://pupil-3e3ed.firebaseio.com",
+                projectId: "pupil-3e3ed",
+                storageBucket: "pupil-3e3ed.appspot.com",
+                messagingSenderId: "1012075073421"
+            };
+            firebase.initializeApp(config);
+
+            const btnLogin = document.getElementById('submit');
+            const fn = document.getElementById("first_name");
+            const ln = document.getElementById("last_name");
+            const rn = document.getElementById("Reg_no");
+            const tel = document.getElementById("icon_telephone");
+            const email = document.getElementById("email");
+            const Addr = document.getElementById("per");
+            const Addt = document.getElementById("tem");
+            const ten_m = document.getElementById("ten");
+            const twe_m = document.getElementById("twelve");
+            const Grad = document.getElementById("grd");
+            const Diploma = document.getElementById("dpa");
+            const Current_location = document.getElementById("cl");
+            const Prefferd_location = document.getElementById("pl");
+            const file_ulp = document.getElementById("imgInp");
+
+
+            var uRef = firebase.database.ref('user');
+
+
+        }btnLogin.addEventListener('click',e=>{
+            firebase.database().ref('/User/' + key_id + '/User_info/' + x + '/uID').set(fn);
+            promise.catch(e=> console.log("okay"));
+        });
+
+    </script>
+</head>
+
+<body background="images/html.jpg">
+<center>
+    <h1>STUDENT  REGISTRATION </h1></center>
+<form>
+    <div style="padding: 80px">
+        <ul class="collapsible popout" data-collapsible="expandable">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">add</i>Personal details</div>
+                <div class="collapsible-body">
+                    <div class="content_inner">
+                        <div id="box" class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                                        <label for="first_name">First Name</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input id="last_name" type="text" class="validate">
+                                        <label for="last_name">Last Name</label>
+                                    </div>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="Reg_no" type="text" class="validate">
+                                    <label for="Reg_no">Registration No.</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Telephone</label>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="per" class="materialize-textarea" class="validate"></textarea>
+                                        <label for="per">ADDRESS(permanent)</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="tem" class="materialize-textarea" class="validate"></textarea>
+                                        <label for="tem">ADDRESS(temporary)</label>
+                                    </div>
+                                </div>
+
+                        </div>
+
+                    </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">add</i>Eduaction</div>
+                <div class="collapsible-body">
+                    <div class="content_inner">
+                        <div id="box" class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6">
+
+                                        <input id="ten" type="text" class="validate">
+                                        <label for="ten">X MARKS</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="twelve" type="text" class="validate">
+                                        <label for="twelve">Xii MARKS</label>
+                                    </div>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="grd" type="text" class="validate">
+                                    <label for="grd">gradutation marks</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="dpa" type="tel" class="validate">
+                                    <label for="dpa">diploma marks</label>
+                                </div>
+
+                        </div>
+</form>
+</div>
+</div>
+</li>
+<li>
+    <div class="collapsible-header"><i class="material-icons">add</i>Location</div>
+    <div class="collapsible-body">
+        <div class="content_inner">
+            <div id="box" class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+
+                            <input id="cl" type="text" class="validate">
+                            <label for="cl">CURRENT LOCATION</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="pl" type="text" class="validate">
+                            <label for="pl">PREFEERED LOACTION</label>
+                        </div>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</li>
+<li>
+    <div class="collapsible-header"><i class="material-icons">add</i>Key Skills</div>
+    <div class="collapsible-body">
+        <div class="content_inner">
+            <div id="box" class="row">
+                <form class="col s12">
+                    <div class="row">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+</li>
+<li>
+    <div class="collapsible-header"><i class="material-icons">add</i>RESUME</div>
+    <div class="collapsible-body">
+
+        <div class="content_inner">
+            <div id="box" class="row">
+                <form class="col s12">
+                    <div class="row">
+
+                        <div class="container">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Upload Resume</label>
+                                    <div class="input-group">
+                                                        <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                    Browse… <input type="file" id="imgInp">
+                </span>
+                                                        </span>
+                                        <input type="text" class="form-control" readonly>
+                                    </div>
+                                    <img id='img-upload' />
+                                </div>
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+</li>
+
+</ul>
+</div>
+<center>
+<div class="wrap centre">
+    <div class="checkbox">
+        <input id="check" type="checkbox" name="check" value="check">
+        <label for="check">i agree.</label>
+        <button id="btnLogin" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <a class="waves-effect waves-light btn-small"><i class="material-icons left">send</i>
+        </button>
+    </div>
+
+</div>
+</center>
+
+</form>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
+</body>
+
+</html>

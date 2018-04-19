@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        #box {
+            background-color: rgba(5, 4, 2, 0.1);
+            width: 850px;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+        
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+        
+        #img-upload {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body background="images/html.jpg" >
+    <div style="padding: 80px">
+        <ul class="collapsible popout" data-collapsible="expandable">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">add</i>Personal details</div>
+                <div class="collapsible-body">
+                    <div class="content_inner">
+                        <div id="box" class="row">
+                            <form class="col s12" >
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                                        <label for="first_name">First Name</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input id="last_name" type="text" class="validate">
+                                        <label for="last_name">Last Name</label>
+                                    </div>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="Reg_no" type="text" class="validate">
+                                    <label for="Reg_no">Registration No.</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Telephone</label>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                                    </div>
+                                </div>
+                               
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="textarea1" class="materialize-textarea" class="validate"></textarea>
+                                        <label for="Addp">ADDRESS(permanent)</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="textarea1" class="materialize-textarea" class="validate"></textarea>
+                                        <label for="Addt">ADDRESS(temporary)</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">add</i>Eduaction</div>
+                <div class="collapsible-body">
+                    <div class="content_inner">
+                        <div id="box" class="row">
+                            <form class="col s12" >
+                                <div class="row">
+                                    <div class="input-field col s6">
+
+                                        <input id="ten" type="text" class="validate">
+                                        <label for="ten">X MARKS</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="twelve" type="text" class="validate">
+                                        <label for="twelve">Xii MARKS</label>
+                                    </div>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="grd" type="text" class="validate">
+                                    <label for="grd">gradutatiom marks</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="dpa" type="tel" class="validate">
+                                    <label for="dpa">diploma marks</label>
+                                </div>                        
+                               
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">add</i>Location</div>
+                <div class="collapsible-body">
+                    <div class="content_inner">
+                        <div id="box" class="row">
+                            <form class="col s12" >
+                                <div class="row">
+                                    <div class="input-field col s6">
+
+                                        <input id="ten" type="text" class="validate">
+                                        <label for="ten">CURRENT LOCATION</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="twelve" type="text" class="validate">
+                                        <label for="twelve">PREFEERED LOACTION</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">add</i>Key Skills</div>
+                <div class="collapsible-body">
+                    <div class="content_inner">
+                        <div id="box" class="row">
+                            <form class="col s12" >
+                                <div class="row">
+                                    
+                               
+
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">add</i>RESUME</div>
+                <div class="collapsible-body">
+
+                    <div class="content_inner">
+                        <div id="box" class="row">
+                            <form class="col s12" >
+                                <div class="row">
+                                    
+                                <div class="container">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Upload Resume</label>
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                    Browse… <input type="file" id="imgInp">
+                </span>
+                                                </span>
+                                                <input type="text" class="form-control" readonly>
+                                            </div>
+                                            <img id='img-upload' />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                        
+                        </form>
+                    </div>
+                </div>
+            </li>
+           
+
+        </ul>
+    </div>
+    
+    
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+
+</html>

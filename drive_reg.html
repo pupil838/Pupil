@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        #box {
+            background-color: rgba(5, 4, 2, 0.1);
+            width: 850px;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+        }
+
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+
+        #img-upload {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<div background="images/html.jpg">
+    <center>
+        <h1>STUDENT  REGISTRATION </h1></center>
+    <form>
+        <div style="padding: 80px">
+            <ul class="collapsible popout" data-collapsible="expandable">
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">add</i>DRIVE DETAILS AND OTHERs</div>
+                    <div class="collapsible-body">
+
+                        <div class="content_inner">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="jl1" type="text" class="validate">
+                                    <label class="active" for="jl1">DRIVE CODE</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="des" type="text" class="validate">
+                                    <label class="active" for="jl1">VENNUE</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="sal" type="text" class="validate">
+                                    <label class="active" for="sal">STREAM</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="pro" type="text" class="validate">
+                                    <label class="active" for="pro">PACKAGE</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="pro" type="text" class="validate">
+                                    <label class="active" for="pro">DRIVE DATE</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="pro" type="text" class="validate">
+                                    <label class="active" for="pro">REGISTER BY-</label>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">add</i> COMPANY DETAILS AND OTHERs</div>
+                    <div class="collapsible-body">
+
+                        <div class="content_inner">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="jl1" type="text" class="validate">
+                                    <label class="active" for="jl1">Job Location</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="des" type="text" class="validate">
+                                    <label class="active" for="jl1">Desgination</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="sal" type="text" class="validate">
+                                    <label class="active" for="sal">Salary</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="pro" type="text" class="validate">
+                                    <label class="active" for="pro">Job Profile</label>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">add</i>SELECTION DETAILS AND OTHERs</div>
+                    <div class="collapsible-body">
+
+                        <div class="content_inner">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="jl1" type="text" class="validate">
+                                    <label class="active" for="jl1">Job Location</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="des" type="text" class="validate">
+                                    <label class="active" for="jl1">Desgination</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="sal" type="text" class="validate">
+                                    <label class="active" for="sal">Salary</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="pro" type="text" class="validate">
+                                    <label class="active" for="pro">Job Profile</label>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">add</i>Job Profile</div>
+                    <div class="collapsible-body">
+
+                        <div class="content_inner">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="jl1" type="text" class="validate">
+                                    <label class="active" for="jl1">Job Location</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="des" type="text" class="validate">
+                                    <label class="active" for="jl1">Desgination</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="sal" type="text" class="validate">
+                                    <label class="active" for="sal">Salary</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="pro" type="text" class="validate">
+                                    <label class="active" for="pro">Job Profile</label>
+                                </div>
+                            </div>
+                        </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="wrap centre">
+            <div class="checkbox">
+                <input id="check" type="checkbox" name="check" value="check">
+                <label for="check">i agree.</label>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <a class="waves-effect waves-light btn-small"><i class="material-icons left">send</i>
+                </button>
+            </div>
+
+        </div>
+
+    </form>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    </body>
+
+</html>

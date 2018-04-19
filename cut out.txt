@@ -1,0 +1,40 @@
+ <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="Program" type="text" class="validate">
+                                        <label for="Program">Program</label>
+                                    </div>
+                                </div>
+<div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                                    </div>
+                                </div>
+<div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="Program" type="text" class="validate">
+                                        <label for="Program">Program</label>
+                                    </div>
+                                </div>
+ <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="textarea1" class="materialize-textarea" class="validate"></textarea>
+                                        <label for="Addp">ADDRESS(permanent)</label>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Upload Image</label>
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                    Browse… <input type="file" id="imgInp">
+                </span>
+                                                </span>
+                                                <input type="text" class="form-control" readonly>
+                                            </div>
+                                            <img id='img-upload' />
+                                        </div>
+                                    </div>
+                                </div>
